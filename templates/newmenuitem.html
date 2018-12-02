@@ -1,0 +1,27 @@
+<!-- template for new category  -->
+{% extends "main.html" %}
+{% block content %}
+    <div class="item_page">
+        <div style=" margin: auto; width: 60%;">
+            <!-- form -->
+            <fieldset style="padding: 10px;">
+                <legend style="margin: auto;"><h1>New Menu Item</h1></legend>
+                <p>Name:</p>
+                <input type='text' maxlength="250" name='name' placeholder="name" required>
+                <p>Description:</p>
+                <input type='text' maxlength="250" name='description'>
+                <p>Price:</p>
+                <input type='text' maxlength="8" name='price' placeholder="price">
+                <p>Course:</p>
+                <input type='radio' name='course' value='Appetizer'>Appetizer</br>
+                <input type='radio' name='course' value='Entree'>Entree</br>
+                <input type='radio' name='course' value='Dessert'>Dessert</br>
+                <input type='radio' name='course' value='Beverage'>Beverage</br>
+                </br>
+                <p>Picture:</p>
+                <input type='url' maxlength="250" name='picture' placeholder="picture">
+                <input type='submit' value='Create'>
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}

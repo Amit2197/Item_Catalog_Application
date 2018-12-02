@@ -1,0 +1,34 @@
+<!-- template for display information about items -->
+{% extends "main.html" %}
+{% block content %}
+
+    <main>
+        <div class="item_menu_page">
+            <div class="img_card_desc">
+                {% if item['picture'] == '' %}
+                    <img src="{{ url_for('static', filename='images.png') }}" alt="picture">
+                {% else %}
+                    <img src="{{ item['picture'] }}" alt="picture">
+                {% endif %}
+            </div>
+            <div class="menu_card_desc">
+                <h2>{{ item.name }}</h2>
+                <br>
+                <p>Description:&emsp;{{ item.description }}</p>
+                <p>Course:&emsp;&emsp;&emsp;&nbsp;{{ item.course }}</p>
+                <p>Catogery:&emsp;&emsp;&nbsp;<a
+                        href="{{ url_for('showRestaurantsItem', restaurant_name=item.restaurant.name, restaurant_id=item.restaurant.id) }}">{{ item.restaurant.name }}</a>
+                </p>
+                <p>Edit By:&emsp;&emsp;&emsp;&nbsp;<a
+                        href="{{ url_for('showUserInfo', user_id=item.user.id) }}">{{ item.user.name }}</a></p>
+                {% if 'email' in session %}
+                    <pre class="edit_item"><br><span><a class="editbtn"
+                                                        href="{{ url_for('editMenuItem', restaurant_id=item.restaurant.id, menu_id=item.id) }}">Edit</a></span> | <span><a
+                            class="editbtn"
+                            href="{{ url_for('deleteMenuItem', restaurant_id=item.restaurant.id, menu_id=item.id) }}">Delete</a></span></pre>
+                {% endif %}
+            </div>
+            <p class="menu_price">{{ item.price }}</p>
+        </div>
+    </main>
+{% endblock %}

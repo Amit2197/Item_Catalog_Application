@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+    </script>
+
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+
+    <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+</head>
+<body>
+<!-- GOOGLE PLUS SIGN IN BUTTON-->
+<div id="signinButton">
+      <span class="g-signin"
+            data-scope="openid email"
+            data-clientid="979133132903-rvaarndkap8cf3m6gm6k0jvif5oc2p76.apps.googleusercontent.com"
+            data-redirecturi="postmessage"
+            data-accesstype="offline"
+            data-cookiepolicy="single_host_origin"
+            data-callback="signInCallback"
+            data-approvalprompt="force">
+      </span>
+</div>
+<!--END GOOGLE PLUS SIGN IN BUTTON -->
+<div id="result">
+
+</div>
+<script type="text/javascript">
+    function signInCallback(authResult) {
+        if (authResult['code']) {
+            // hide the sign-in button how that the user is authorized,
+            $('#signinButton').attr('style', 'display: none');
+            // Send the one-time-use code to the Server, if the server responds, write a 'login Successful' message to the web page and then redirect back to the main restaurants page
+            $.ajax({
+                type: 'POST',
+                url: '/gconnect?state={{STATE}}',
+                processData: false,
+                contentType: 'application/octet-stream; charset=utf-8',
+                data: authResult['code'],
+                success: function (result) {
+                    if (result) {
+                        $('#result').html('Login Successful!</br>' + result + '</br>Redirecting...')
+                        setTimeout(function () {
+                            window.location.href = "/restaurants/";
+                        }, 2000);
+                    } else if (authResult['error']) {
+
+                        console.log('There was an error: ' + authResult['error']);
+                    } else {
+                        $('#result').html('Failed to make a server-side. Check your configuration and console.');
+                    }
+                }
+            })
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+*, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E6E6FA;
+    height: 100%;
+    width: 100%;
+}
+
+/* heading */
+.header {
+    background-color: #112353;
+    width: 100%;
+    height: auto;
+}
+
+.header_description {
+    margin: 0 auto;
+    width: 70%;
+    min-width: 100px;
+    display: flex;
+    color: #ffffff;
+}
+
+.header_description a {
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header .auth {
+    margin: 8px 0;
+    margin-left: auto;
+
+}
+
+.check a {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px 10px;
+    box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: #ff0000;
+}
+
+.check a:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 10, 0, 0.5);
+    border-radius: 4px;
+    background-color: #ff0000;
+}
+
+/* style code for  display page like card */
+.item_page {
+    width: 70%;
+    height: 100%;
+    margin: 10px auto;
+    display: flex;
+    background-color: white;
+    padding: 20px;
+}
+
+.item_menu_page {
+    width: 70%;
+    height: 200px;
+    margin: 10px auto;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.items {
+    border-left: 1px inset #E6E6FA;
+    margin-left: 10px;
+    flex: 1;
+    height: 100%;
+}
+
+.items_desc {
+    padding-left: 30px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    height: 100%;
+}
+
+/* style for item description */
+.item_card {
+    height: 100px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+.item_card .card_link {
+    display: flex;
+}
+
+/* style image */
+.img_card {
+    height: 100px;
+    width: 120px;
+}
+
+.img_card_desc {
+    width: 180px;
+    height: 100%;
+}
+
+.img_card_desc img {
+    height: 100%;
+    width: 200px;
+    flex: 0.5;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.img_card img {
+    height: 100%;
+    width: 100%;
+    flex: 0.5;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.item_card h4 {
+    margin: 10px 15px;
+}
+
+/* style price, item price */
+.item_card .price, .menu_price {
+    margin-left: auto;
+    margin-top: 5px;
+    margin-right: 10px;
+    background-color: grey;
+    height: 70px;
+    width: 70px;
+    padding: 25px 10px;
+    border-radius: 50px;
+}
+/* style for price icon */
+.price, .menu_price{
+    color: red;
+    text-align: center;
+}
+
+.item_card .menu_price {
+    padding: 18px 10px;
+    margin-top: 0;
+    margin-right: 0;
+}
+
+.edit_item {
+    align-self: flex-end;
+}
+
+/* crop image */
+.cropimg img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+}
+
+.menu_card_desc {
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.navbar ul {
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a {
+    background-color: grey;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* dropdown */
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropbtn, .dropbtn:focus {
+    background-color: grey;
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.ctgr_item {
+    display: flex;
+}
+
+.addctgry {
+    margin-left: auto;
+    background-color: #E6E6FA;
+    padding: 10px;
+    border: 1px inset #9b9bae;
+    border-radius: 5px;
+}
+
+/* button */
+.editbtn {
+    padding: 5px;
+    background-color: #E6E6FA;
+    border: 1px inset #9b9bae;
+    border-radius: 5px;
+}
+
+/* style user page */
+.user_page {
+    background-color: white;
+    margin: 20px auto;
+    width: 40vw;
+    min-width: 350px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* style input text, url, select box */
+input[type='text'], input[type='url'], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 5px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* style input radio */
+input[type=radio] {
+    padding: 12px 20px;
+    margin: 8px 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #00004e;
+    color: #ffffff;
+}

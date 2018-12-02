@@ -1,0 +1,51 @@
+<!-- header -->
+<header class="header">
+    <div class="header_description">
+        <a href="{{ url_for('showCatalogs') }}">
+            <h1>Restaurant Menu App</h1>
+        </a>
+        <div class="auth">
+            <!-- check user logged-in or not -->
+            {% if 'email' in session %}
+                <div class="navbar">
+                    <!-- Dropdown button-->
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="myFunction()">{{ session['username'] }}
+                            <i>&#x25BD;</i>
+                        </button>
+                        <div class="dropdown-content" id="myDropdown">
+                            <ul>
+                                <!-- user information -->
+                                <li>
+                                    <div class="cropimg">
+                                        <img src="{{ session['picture'] }}" alt="image of {{ session['picture'] }}">
+                                    </div>
+                                </li>
+                                <li>{{ session['username'] }}</li>
+                                <li>{{ session['email'] }}</li>
+                                <hr>
+                                <li><a href="{{ url_for('gdisconnect') }}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="check">
+                    <a href="{{ url_for('login') }}">Login</a>
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+</header>
+<!--MESSAGE FLASHING EXAMPLE -->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div style="color: red;padding: 10px;margin: 10px auto; width: 70%;background-color: #dddddd; text-align: center;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}

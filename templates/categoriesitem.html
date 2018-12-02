@@ -1,0 +1,74 @@
+<!-- template for item for specific category -->
+<div class="items">
+    <div class="items_desc">
+        <div class="ctgr_item">
+            <!-- check user logged-in or not -->
+            {% if 'email' in session %}
+
+                <!-- check user logged-in -->
+                <div style="align-items: flex-start" class="edit_item">
+                    <h2>{{ restaurant.name }}({{ quantity }} items)</h2>
+                    <br>
+                    <a class="editbtn" href="{{ url_for('editCategory',restaurant_id = restaurant.id) }}">Edit
+                        category</a> |
+                    <a class="editbtn" href="{{ url_for('deleteCategory',restaurant_id = restaurant.id) }}">Delete
+                        category</a>
+                </div>
+
+                <a class="addctgry" href="{{ url_for('newMenuItem', restaurant_id = restaurant.id) }}">new&#8853;</a>
+            {% else %}
+                <h2>{{ restaurant.name }}({{ quantity }} items)</h2>
+            {% endif %}
+            <!-- check user not logged-in -->
+        </div>
+        <br>
+        <hr>
+        <br>
+        {% for item in items %}
+            <div class="item_card">
+                {% if 'email' in session %}
+                    <div class="card_link">
+                        <a href="{{ url_for('showMenuItems', restaurant_name=item.restaurant.name, restaurant_id=item.restaurant.id, menu_id=item.id, menu_name=item.name) }}">
+                            <!-- item card view -->
+                            <div class="img_card">
+                                {% if item['picture'] == '' %}
+                                    <!-- display image from local directory -->
+                                    <img src="{{ url_for('static', filename='images.png') }}" alt="picture">
+                                {% else %}
+                                    <img src="{{ item['picture'] }}" alt="picture">
+                                {% endif %}
+                            </div>
+                            <h4>{{ item.name }}<br>
+                                <small> &nbsp;&nbsp;-{{ item.restaurant.name }}</small>
+                                <pre class="edit_item"><br><a class="editbtn"
+                                                              href="{{ url_for('editMenuItem', restaurant_id=item.restaurant.id, menu_id=item.id) }}">Edit</a> | <a
+                                        class="editbtn"
+                                        href="{{ url_for('deleteMenuItem', restaurant_id=item.restaurant.id, menu_id=item.id) }}">Delete</a></pre>
+                            </h4>
+                            <p class="price">{{ item.price }}</p>
+                        </a>
+                    </div>
+                {% else %}
+                    <div>
+                        <a class="card_link"
+                           href="{{ url_for('showMenuItems', restaurant_name=item.restaurant.name, restaurant_id=item.restaurant.id, menu_id=item.id, menu_name=item.name) }}">
+                            <div class="img_card">
+                                {% if item['picture'] == '' %}
+                                    <img src="{{ url_for('static', filename='images.png') }}" alt="picture">
+
+                                {% else %}
+                                    <img src="{{ item['picture'] }}" alt="picture">
+                                {% endif %}
+                            </div>
+                            <h4>{{ item.name }}<br>
+                                <small> &nbsp;&nbsp;-{{ item.restaurant.name }}</small>
+                            </h4>
+                            <p class="price">{{ item.price }}</p>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

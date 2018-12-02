@@ -1,0 +1,17 @@
+<!-- template for show category -->
+<div class="categories">
+    <div class="ctgr_item">
+        <h2>Categories</h2>
+        <!-- check user logged-in or not -->
+        {% if 'email' in session %}
+            <a class="addctgry" href="{{ url_for('newCategory') }}">new&#8853;</a>
+        {% endif %}
+    </div>
+    <br>
+    <hr>
+    <br>
+    {% for restaurant in restaurants %}
+        <a href="{{ url_for('showRestaurantsItem', restaurant_name=restaurant.name, restaurant_id=restaurant.id) }}">
+            <h5>{{ restaurant.name }}</h5></a>
+    {% endfor %}
+</div>

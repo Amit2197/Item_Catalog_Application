@@ -1,0 +1,20 @@
+<!-- template for delete Item-->
+{% extends "main.html" %}
+{% block content %}
+    <div class="item_page">
+        <div>
+    <h1> Are you sure you want to delete {{item.name}}? </h1>
+
+<form action="#" method = 'post'>
+
+<input class="editbtn" type='submit', value = 'Delete Item'>
+
+<a class="editbtn" href = '{{ url_for("showCatalogs") }}'> Cancel </a>
+
+
+</form>
+        </div>
+    </div>
+
+
+{% endblock %}

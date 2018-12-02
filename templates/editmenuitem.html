@@ -1,0 +1,48 @@
+<!-- template for edit category -->
+{% extends "main.html" %}
+{% block content %}
+    <div class="item_page">
+        <div style=" margin: auto; width: 60%;">
+            <!-- form -->
+            <fieldset style="padding: 10px;">
+                <legend style="margin: auto;"><h1> Edit Menu Item </h1></legend>
+                <form action="#" method='post'>
+                    <p>Name:</p>
+                    <input type='text' maxlength='250' name='name' value="{{ item.name }}" placeholder='{{ item.name }}' required>
+                    <p>Description:</p>
+                    <input type='text' maxlength='250' value= name='description' value='{{ item.description }}' placeholder='{{ item.description }}'>
+                    <p>Price:</p>
+                    <input type='text' maxlength='8' name='price' placeholder='{{ item.price }}' value='{{ item.price }}'>
+                    <p>Course:
+                    <p>
+                    <dl>
+                        {% if item.course == 'Appetizer' %}
+                            <dd><input type='radio' name='course' value='Appetizer' checked>Appetizer</dd>
+                        {% else %}
+                            <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
+                        {% endif %}
+                        {% if item.course == 'Entree' %}
+                            <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
+                        {% else %}
+                            <dd><input type='radio' name='course' value='Entree'>Entree</dd>
+                        {% endif %}
+                        {% if item.course == 'Dessert' %}
+                            <dd><input type='radio' name='course' value='Dessert' checked>Dessert</dd>
+                        {% else %}
+                            <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
+                        {% endif %}
+                        {% if item.course =='Beverage' %}
+                            <dd><input type='radio' name='course' value='Beverage' checked>Beverage</dd>
+                        {% else %}
+                            <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
+                        {% endif %}
+                    </dl>
+                    <p>Picture-URL:</p>
+                    <input type='url' maxlength="250" name='picture' value="{{ item.picture }}" placeholder="{{ item.picture }}">
+                    <input type='submit' value='Edit'>
+                    <a href='{{ url_for('showCatalogs') }}'> Cancel </a>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!-- template for edit category -->
+{% extends "main.html" %}
+{% block content %}
+    <div class="item_page">
+        <div style=" margin: auto; width: 60%;">
+            <!-- form -->
+            <form action="#" method='post'>
+                <fieldset style="padding: 10px;">
+                    <legend style="margin: auto;"><h1>Edit Category</h1></legend>
+                    <dl>
+                        <dt>Name:</dt>
+                        <dd><input type='text' name='name' value="{{ restaurant.name }}" placeholder="{{ restaurant.name }}" required></dd>
+                    </dl>
+                    <br>
+                    <input type='submit' value='Create'>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

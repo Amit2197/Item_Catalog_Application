@@ -1,0 +1,13 @@
+<!-- template for display information about user-->
+{% extends "main.html" %}
+{% block content %}
+    <div class="user_page">
+        <fieldset style="padding:15px;">
+            <legend style="margin:0px auto;"><h1>{{ user.name }}</h1></legend>
+            <img style="height:150px;width:150px;border-radius:100px;margin-top:10px;border:2px inset #E6E6FA;"
+                 src="{{ user['picture'] }}" alt="user photo">
+            <br><br>
+            <p><strong>email:</strong> {{ user.email }}</p>
+        </fieldset>
+    </div>
+{% endblock %}
